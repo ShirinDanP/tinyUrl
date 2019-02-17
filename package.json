@@ -5,7 +5,19 @@
   "dependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "classnames": "^2.2.6",
+    "eslint": "5.12.0",
+    "eslint-config-react-app": "^3.0.6",
+    "eslint-loader": "2.1.1",
+    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-react": "7.11.1",
+    "jest": "23.6.0",
+    "jest-pnp-resolver": "1.0.1",
+    "jest-resolve": "23.6.0",
+    "webpack-dev-server": "3.1.14",
+    "webpack-manifest-plugin": "2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

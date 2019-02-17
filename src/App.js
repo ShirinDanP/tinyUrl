@@ -1,25 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+
+import { ShortenButton } from './components/ShortenButton';
+import { InputUrl } from './components/InputUrl';
 import './App.css';
 
-class App extends Component {
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: '',
+    };
+    this.getInputUrl = this.getInputUrl.bind(this);
+  }
+
+  getInputUrl(url) {
+    this.setState({
+      inputValue: url,
+    });
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <InputUrl getInputUrl={this.getInputUrl} />
+        <ShortenButton url={this.state.inputValue} />
       </div>
     );
   }

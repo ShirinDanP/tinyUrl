@@ -1,0 +1,16 @@
+.input {
+    padding: 10px 8px 10px 8px;
+    width: 100%;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    margin-top: 1rem;
+}
+
+@media (min-width: 600px) {
+    .input {
+        width: 50%;
+    }
+}
