@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { ShortenButton } from './components/ShortenButton';
-import { InputUrl } from './components/InputUrl';
+import { TinyUrl } from './container/TinyUrl';
 import './App.css';
 
 class App extends React.PureComponent {
@@ -21,8 +20,7 @@ class App extends React.PureComponent {
   render() {
     return (
       <div className="App">
-        <InputUrl getInputUrl={this.getInputUrl} />
-        <ShortenButton url={this.state.inputValue} />
+        <TinyUrl url={this.state.inputValue} getInputUrl={this.getInputUrl} />
       </div>
     );
   }
