@@ -4,8 +4,7 @@ export function getUrl(url) {
     url.startsWith('https://') ||
     url.startsWith('ftp://');
   if (!urlWithHttp) {
-    const newurl = `http://${url}`;
-    return newurl;
+    return `http://${url}`;
   }
   return url;
 }
