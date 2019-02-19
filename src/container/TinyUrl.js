@@ -8,6 +8,7 @@ import { getUrl, getRandom, getUrlfromCom } from '../functions';
 
 const createdUrls = [];
 const inputValues = [];
+const lasttenUrls = {};
 export class TinyUrl extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -33,6 +34,15 @@ export class TinyUrl extends React.PureComponent {
     )}${getRandom()}`;
     inputValues.push(getUrl(this.state.inputValue));
     createdUrls.push(result);
+    inputValues.forEach((key, i) => (lasttenUrls[key] = createdUrls[i]));
+    sessionStorage.setItem(
+      'urls',
+      JSON.stringify(
+        Object.keys(lasttenUrls)
+          .slice(-10)
+          .map(key => ({ [key]: lasttenUrls[key] }))
+      )
+    );
     return result;
   }
 
@@ -55,7 +65,7 @@ export class TinyUrl extends React.PureComponent {
             shortUrl={this.state.shortUrl}
           />
         )}
-        <LastTenCreatedUrl createdUrls={createdUrls} inputUrls={inputValues} />
+        <LastTenCreatedUrl inputUrls={JSON.parse(sessionStorage.urls)} />
       </React.Fragment>
     );
   }

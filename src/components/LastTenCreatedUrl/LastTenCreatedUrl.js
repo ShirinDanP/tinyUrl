@@ -3,21 +3,16 @@ import { PropTypes } from 'prop-types';
 
 import styles from './LastTenCreatedUrl.module.css';
 
-export const LastTenCreatedUrl = ({ createdUrls, inputUrls }) => {
-  sessionStorage['url'] = createdUrls.slice(-10);
-  const hrefs = inputUrls.slice(-10);
-
+export const LastTenCreatedUrl = ({ inputUrls }) => {
+  console.log('shirin', Object.keys(inputUrls).map(e => inputUrls[e]));
   return (
     <section className={styles.container}>
       <p>Your last ten created urls</p>
-      {sessionStorage
-        .getItem('url')
-        .split(',')
-        .map((item, index) => (
-          <a key={index} href={hrefs[index]} className={styles.link}>
-            {item}
-          </a>
-        ))}
+      {Object.values(inputUrls).map((item, i) => (
+        <a href={Object.keys(item)} key={i}>
+          {Object.values(item)}
+        </a>
+      ))}
     </section>
   );
 };
