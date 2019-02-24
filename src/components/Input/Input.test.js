@@ -15,6 +15,7 @@ describe('Input', () => {
     const { container } = render(<Input />);
 
     expect(container).toMatchSnapshot();
+    expect(container.firstChild.nodeName).toBe('INPUT');
   });
 
   it('render input with placeholder', () => {

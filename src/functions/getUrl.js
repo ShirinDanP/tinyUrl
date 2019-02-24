@@ -1,5 +1,5 @@
 export function getUrl(url) {
-  let urlWithHttp =
+  const urlWithHttp =
     url.startsWith('http://') ||
     url.startsWith('https://') ||
     url.startsWith('ftp://');
