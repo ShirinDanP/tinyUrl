@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and has been built by React framework.
 In this project, it is possible to type a url as an input and then see a shortened Url as an result. It means if a very big url is entered, it makes it short and more readable. In addition, the last ten input urls are saved in sessionStorage as 'url' and they can be used whenever needed.
 
-![Alt text](images/tinyUrlView.png)
+![TinyUrls](images/tinyUrlView.png)
 
 ## Available Scripts
 
