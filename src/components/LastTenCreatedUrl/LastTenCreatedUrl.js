@@ -4,7 +4,6 @@ import { PropTypes } from 'prop-types';
 import styles from './LastTenCreatedUrl.module.css';
 
 export const LastTenCreatedUrl = ({ inputUrls }) => {
-  console.log('shirin', Object.keys(inputUrls).map(e => inputUrls[e]));
   return (
     <section className={styles.container}>
       <p>Your last ten created urls</p>

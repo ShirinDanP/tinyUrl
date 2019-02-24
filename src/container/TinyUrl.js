@@ -65,7 +65,9 @@ export class TinyUrl extends React.PureComponent {
             shortUrl={this.state.shortUrl}
           />
         )}
-        <LastTenCreatedUrl inputUrls={JSON.parse(sessionStorage.urls)} />
+        <LastTenCreatedUrl
+          inputUrls={sessionStorage.urls ? JSON.parse(sessionStorage.urls) : ''}
+        />
       </React.Fragment>
     );
   }
