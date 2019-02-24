@@ -3,7 +3,7 @@ In this project, it is possible to type a url as an input and then see a shorten
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, please first run 'npm install'. Then you can run following commands:
 
 ### `npm start`
 
@@ -15,5 +15,4 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Fisrt run "yarn add --dev react-test-renderer" and then you can run "npm test"
