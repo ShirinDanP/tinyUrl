@@ -4,7 +4,7 @@ import { InputUrl } from '../components/InputUrl';
 import { Button } from '../components/Button';
 import { ShortenLink } from '../components/ShortenLink';
 import { LastTenCreatedUrl } from '../components/LastTenCreatedUrl';
-import { getUrl, getRandom, getUrlfromCom } from '../functions';
+import { getUrl, getRandom, getUrlfromCom, UrlStorage } from '../functions';
 
 const createdUrls = [];
 const inputValues = [];
@@ -21,7 +21,6 @@ export class TinyUrl extends React.PureComponent {
     this.onClickShortenBtn = this.onClickShortenBtn.bind(this);
     this.getInputUrl = this.getInputUrl.bind(this);
   }
-
   getInputUrl(url) {
     this.setState({
       inputValue: url,
@@ -35,14 +34,7 @@ export class TinyUrl extends React.PureComponent {
     inputValues.push(getUrl(this.state.inputValue));
     createdUrls.push(result);
     inputValues.forEach((key, i) => (lasttenUrls[key] = createdUrls[i]));
-    sessionStorage.setItem(
-      'urls',
-      JSON.stringify(
-        Object.keys(lasttenUrls)
-          .slice(-10)
-          .map(key => ({ [key]: lasttenUrls[key] }))
-      )
-    );
+    UrlStorage.set(lasttenUrls);
     return result;
   }
 
@@ -54,20 +46,15 @@ export class TinyUrl extends React.PureComponent {
   }
 
   render() {
-    const { inputValue } = this.state;
+    const { inputValue, shortUrl, showUrl } = this.state;
     return (
       <React.Fragment>
         <InputUrl getInputUrl={this.getInputUrl} />
         <Button onClick={this.onClickShortenBtn}>Shorten the URL</Button>
-        {this.state.showUrl && (
-          <ShortenLink
-            href={getUrl(inputValue)}
-            shortUrl={this.state.shortUrl}
-          />
+        {showUrl && (
+          <ShortenLink href={getUrl(inputValue)} shortUrl={shortUrl} />
         )}
-        <LastTenCreatedUrl
-          inputUrls={sessionStorage.urls ? JSON.parse(sessionStorage.urls) : ''}
-        />
+        <LastTenCreatedUrl inputUrls={UrlStorage.get()} />
       </React.Fragment>
     );
   }

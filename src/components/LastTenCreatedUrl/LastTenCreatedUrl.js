@@ -8,7 +8,7 @@ export const LastTenCreatedUrl = ({ inputUrls }) => {
     <section className={styles.container}>
       <p>Your last ten created urls</p>
       {Object.values(inputUrls).map((item, i) => (
-        <a href={Object.keys(item)} key={i}>
+        <a className={styles.links} href={Object.keys(item)} key={i}>
           {Object.values(item)}
         </a>
       ))}
