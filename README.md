@@ -1,3 +1,5 @@
+## Tiny urls project
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 In this project, it is possible to type a url as an input and then see a shortened Url as an result. It means if a very big url is entered, it makes it short and more readable. In addition, the last ten input urls are saved in sessionStorage as 'url' and they can be used whenever needed.
 
@@ -7,7 +9,6 @@ In the project directory, please first run 'npm install'. Then you can run follo
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
